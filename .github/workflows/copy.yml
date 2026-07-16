@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Use Skopeo Copy
         env:
@@ -25,3 +25,9 @@ jobs:
           yq --version
           skopeo login --username=${{ secrets.REGISTRY_USERNAME }} --password=${{ secrets.REGISTRY_PASSWORD }} "$REGISTRY"
           sh scripts/copy.sh batch
+      - name: Notify success
+        run: |
+          curl -s -G "${{ secrets.NOTICE_URL }}" \
+            --data-urlencode "title=镜像复制完成" \
+            --data-urlencode "body=版本: ${GITHUB_SHA}" \
+            --data-urlencode "group=ioclub-image"
