@@ -1,6 +1,7 @@
 images:
   - src: redis:7-alpine
   - src: rustfs/rustfs:1.0.0-beta.8
+  - src: rustfs/rustfs:1.0.0-beta.9
   - src: postgres:16-alpine
   - src: python:3.12-slim
   - src: adminer:5.4.2-standalone
