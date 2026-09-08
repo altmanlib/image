@@ -13,3 +13,4 @@ images:
   - src: python:3.14-alpine
   - src: adminer:5.4.2-standalone
   - src: adminer:6.0.1-standalone
+  - src: adminer:6.0.2-standalone
